@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>VoiceWrite</title>
-	<link rel="stylesheet" type="text/css" href="CSS.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	<title>Voice-Write</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+		integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+		crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
+
 <body>
 	<div id="modeSelector">
 		<div id="slider"></div>
-		<h2 id="letter" class="toggleMode">Letter</h2>
-		<h2 id="assignment" class="toggleMode">Assignment</h2>
+		<h2 id="letter" class="toggleMode   font-bold"  >Letter</h2>
+		<h2 id="assignment" class="toggleMode font-bold">Assignment</h2>
 	</div>
-	<div id="leftBar">
+	<div id="leftBar"
+		class="border fixed top-[180px] rounded-xl   p-5   shadow-sm bg-white border-[5px]  border-black left-[30px] bar">
 		<div id="slider1"></div>
-		<div class="selector" id="penColor"><i class="fas fa-pen"></i> &nbspPen Colour</div>
-			<div id="color">
-				<span id="black" onclick="pencolour('#8D8689')">Black</span>
-				<span id="blue" onclick="pencolour('#155EC4')">Blue</span>
-				<span id="green" onclick="pencolour('#44B797')">Green</span>
-				<span id="red" onclick="pencolour('#ED584D')">Red</span>
-			</div>
-		<div class="selector" id="pageStyle"><i class="fas fa-file"></i></i> &nbsp Page Style</div>
-		     <div id="style">
-				<span onclick="pagestyle(1);">Style 1</span>
-				<span onclick="pagestyle(2);">Style 2</span>
-				<span onclick="pagestyle(3);">Style 3</span>
-			</div>
-		<div class="selector" id="handwriting"><i class="fas fa-signature"></i></i> &nbspHandwriting</div>
-		     <div id="writing">
-				<span onclick="hwriting('Dawning of a New Day');">Writing 1</span>
-				<span onclick="hwriting('Sacramento');">Writing 2</span>
-				<span onclick="hwriting('Reenie Beanie');">Writing 3</span>
-			</div>
-	    </div>
-	    <div id="paper" contenteditable>
-	    	
-	    </div>
-	    <div id="rightBar">
-	    	<i id='mic' class="fas fa-microphone-slash" onclick="turnoff();"></i>
-	    	<i onclick="clickphoto();" class="fas fa-save"></i>
-	    	<i class="fas fa-volume-up" onclick="speak()"></i>
-	    </div>
-	    <div id="savingStrip">
-	    </div>
-	    <audio id="snap" src="asset/snap.mp3" hiddin></audio>
-<script type="text/javascript" src="html2canvas.js"></script>
-<script type="text/javascript" src="JS.js"></script>
+		<div class="selector" id="penColor" > Pen Colour</div>
+		<div id="color" class="flex flex-col ">
+			<span id="black" onclick="pencolour('#8D8689')">Black</span>
+			<span id="blue" onclick="pencolour('#155EC4')">Blue</span>
+			<span id="green" onclick="pencolour('#44B797')">Green</span>
+			<span id="red" onclick="pencolour('#ED584D')">Red</span>
+		</div>
+		<div class="selector" id="pageStyle"></i> Page Style</div>
+		<div id="style">
+			<span onclick="pagestyle(1);">Style 1</span>
+			<span onclick="pagestyle(2);">Style 2</span>
+			<span onclick="pagestyle(3);">Style 3</span>
+		</div>
+		<div class="selector" id="handwriting">Handwriting</div>
+		<div id="writing">
+			<span onclick="hwriting('Dawning of a New Day');">Writing 1</span>
+			<span onclick="hwriting('Sacramento');">Writing 2</span>
+			<span onclick="hwriting('Reenie Beanie');">Writing 3</span>
+		</div>
+	</div>
+	<div id="paper" contenteditable class="border shadow-xl rounded-xl max-h-[590px]">
+
+	</div>
+	<div id="rightBar" class=" bar border   flex-col justify-center items-center rounded-xl  w-[100px] shadow-xl bg-white  border-[5px]  border-black">
+		<div class="flex justify-center items-center ">
+			<i class="uil uil-microphone " onclick="turnoff();" id="mic"></i>
+		</div>
+		<div class="flex justify-center items-center">
+			<i class="uil uil-clipboard-blank" onclick="clickphoto();"></i>
+		</div>
+		<div class="flex justify-center items-center"><i class="uil uil-megaphone " onclick="speak()"></i></div>
+
+
+
+	</div>
+	<div id="savingStrip">
+	</div>
+	 
+	<audio id="snap" src="asset/snap.mp3" hiddin></audio>
+	<script type="text/javascript" src="canvas.js"></script>
+	<script type="text/javascript" src="index.js"></script>
 </body>
+
 </html>
